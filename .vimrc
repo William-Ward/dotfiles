@@ -40,3 +40,12 @@ call plug#begin('~/.vim/plugged')
 " Plug 'vim-scripts/Conque-GDB'
 
 call plug#end()
+
+"---text templates---
+"creates a basic for loop template
+autocmd Filetype cpp inoremap for for(int i = 0; i < size; i++)<Enter>{<Enter><Enter>}<ESC>kcc
+"creates a basic c++ template
+autocmd Filetype cpp inoremap gN #include <iostream><Enter><Enter>using namespace std;<Enter><Enter>int main()<Enter>{<Enter><Enter>return 0;<Enter>}<ESC>kkcc
+
+noremap + :s/^/\/\//<CR>
+noremap - :s/^\/\///<CR>
