@@ -39,7 +39,7 @@ nnoremap <C-<> <C-w><
 nnoremap <C-_> <C-w>_
 nnoremap <bar> <C-w><bar>
 
-nnoremap <C-w> <C-w><C-w>
+" nnoremap <C-w> <C-w><C-w>
 
 nnoremap <C-left> <C-w>H
 nnoremap <C-down> <C-w>J
@@ -51,7 +51,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-map <C-A> ggVG
+" map <C-A> ggVG
 "---Plugins-------------------------------------------------------"
 
 "if empty(glob('~/.vim/autoload/plug.vim'))
