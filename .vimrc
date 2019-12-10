@@ -4,9 +4,10 @@ set number relativenumber " gives me the cool line numbers
 set expandtab             " expands tabs to space
 set smarttab              " makes the automatic tabs
 set tag=tag               " needed for ctags
+set scrolloff=3           " keep 3 lines when scrolling
 "set scl=no                " force the signcolumn to disappear
 
-"set spell spelllang=en_us
+"set spell spelllang=en_us "spell checker
 
 set shiftwidth=4          "don't know what this one does
 set tabstop=4             "don't know what this one does
@@ -28,11 +29,10 @@ set shell=/bin/bash
 
 "---remaps--------------------------------------------------------"
 
-inoremap jk <ESC>
+inoremap jk <ESC>:w<Cr>
 
-nnoremap <C-s> :wa<CR>
+" nnoremap <C-s> :wa<CR>
 nnoremap <C-u> <C-y>
-
 
 nnoremap <C-=> <C-w>=
 nnoremap <C-<> <C-w><
