@@ -1,0 +1,42 @@
+﻿/* shrinks the height of tabs */
+#tabbrowser-tabs { 
+    --tab-min-height: 13px !important;
+    margin-left: 0px !important;
+    height: 13px !important; 
+}
+
+/* shrinks the tab width to 10 pixels*/
+.tabbrowser-tab {
+    max-width: 10px !important;
+} 
+
+/* get's rid of the name of the tab */
+.tab-text {
+    font-size: 0px !important;
+}
+
+/*@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");  only needed once */
+/* remove scroll bars */
+:-moz-any(#content,#appcontent) browser{
+ margin-right:-14px!important;
+ overflow-y:scroll;
+ margin-bottom:-14px!important;
+ overflow-x:scroll;
+}
+
+/* makes the bookmark bar go away */
+#main-window #PersonalToolbar {
+  visibility: collapse !important;
+}
+#main-window[title^="about:newtab"] #PersonalToolbar,
+#main-window[title^="New Tab"] #PersonalToolbar,
+#main-window[title^="Nightly"] #PersonalToolbar,
+#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
+#main-window[title^="Firefox"] #PersonalToolbar {
+  visibility: visible !important;
+}
+
+.menubar {
+    background-color: red;
+}
+
