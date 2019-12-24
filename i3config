@@ -63,10 +63,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+d split h
@@ -178,10 +178,10 @@ client.background  #ffffff
 
 #hide_edge_borders both
 
-exec_always feh --bg-scale ~/Pictures/spiderman.jpg
+exec_always feh --bg-scale ~/pictures/space.jpg
 
 #exec_always compton -o 0.50
-exec_always compton --config ~/.config/compton/compton.conf
+exec_always picom --config ~/.config/picom/picom.conf
 
 new_window 1pixel
 
