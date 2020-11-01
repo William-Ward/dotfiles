@@ -1,5 +1,7 @@
 " ==> General settings {{{
 let mapleader = " " 
+syntax enable
+syntax on
 
 " set colorcolumn to 80 characters and dark grey
 " set colorcolumn=80
@@ -13,17 +15,14 @@ set nowrap    " don't wrap long lines
 set number relativenumber " gives me the cool line numbers
 set tag=tag               " needed for ctags
 set scrolloff=0           " keep 3 lines when scrolling
-"set scl=no                " force the signcolumn to disappear
-
-"set spell spelllang=en_us "spell checker
+set scl=no                " force the signcolumn to disappear
 
 set shiftwidth=4          "don't know what this one does
 set autoindent            "auto indents supported files
 set tabstop=4             "sets tabs to 4 spaces
-set expandtab             "expands tabs to space
+set expandtab             "converts tabs to space
 set smarttab              "makes the automatic tabs
 
-syntax enable
 
 " set cursorline 
 set nocompatible
@@ -64,6 +63,7 @@ nnoremap <Leader>t :Vexplore<cr>
 "==> Remaps {{{
 " tab key uses vims autocomplete
 inoremap <Tab> <C-n>
+inoremap <C-Space> <C-n>
 
 nnoremap <C-s> <C-x>
 nnoremap <BS> $
@@ -89,8 +89,10 @@ vnoremap gk 10k
 
 nnoremap <Leader>w :wa<CR>
 nnoremap <Leader>q :wqa<CR>
+
 nnoremap <Leader>m :!make<CR>
 nnoremap <Leader>mc :!make clean<CR>
+nnoremap <Leader>mt :!make tests<CR>
 
 nnoremap <M-;> <C-w>>
 nnoremap <M-'> <C-w><
@@ -165,33 +167,34 @@ augroup END
 "==> Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-surround'             " surround with specified characters
-Plug 'tpope/vim-commentary'           " comment quickly gcc
-Plug 'tpope/vim-speeddating'          "
-Plug 'godlygeek/tabular'              " align text on a given character
-Plug 'christoomey/vim-tmux-navigator' " move around in tmux and vim
-Plug 'itchyny/lightline.vim'          " better statusline
-Plug 'scrooloose/nerdtree'            " nerdtree
-Plug 'liuchengxu/vim-which-key'       " leader commands
-" Plug 'konfekt/vim-CtrlXA'             " toggle true/false and others
+Plug 'tpope/vim-commentary'             " comment quickly gcc
+Plug 'tpope/vim-fugitive'               " comment quickly gcc
+Plug 'godlygeek/tabular'                " align text on a given character
+Plug 'itchyny/lightline.vim'            " better statusline
+Plug 'scrooloose/nerdtree'              " nerdtree
+Plug 'morhetz/gruvbox'                  " colorscheme
 
-" Plug 'scrooloose/syntastic' " give syntac feedback
-
-" Plug 'philj56/vim-asm-indent'
 call plug#end()
+
+colorscheme gruvbox
+set background=dark
+
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Gpush<CR>
 
 " nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 " nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
-" }}}
+"nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+"" }}}
 
-"==> Word Processor {{{
+""==> Word Processor {{{
 func! WordProcessor()
     nnoremap j gj
     nnoremap k gk
