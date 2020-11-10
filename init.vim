@@ -93,6 +93,7 @@ nnoremap <Leader>q :wqa<CR>
 nnoremap <Leader>m :!make<CR>
 nnoremap <Leader>mc :!make clean<CR>
 nnoremap <Leader>mt :!make tests<CR>
+nnoremap <Leader>rt :!./tests<CR>
 
 nnoremap <M-;> <C-w>>
 nnoremap <M-'> <C-w><
@@ -173,6 +174,12 @@ Plug 'godlygeek/tabular'                " align text on a given character
 Plug 'itchyny/lightline.vim'            " better statusline
 Plug 'scrooloose/nerdtree'              " nerdtree
 Plug 'morhetz/gruvbox'                  " colorscheme
+
+Plug 'glts/vim-magnum'                  " integer library
+Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
+Plug 'tpope/vim-repeat'                 " repeat plugin commands
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
