@@ -174,10 +174,6 @@ Plug 'itchyny/lightline.vim'            " better statusline
 Plug 'scrooloose/nerdtree'              " nerdtree
 Plug 'morhetz/gruvbox'                  " colorscheme
 
-Plug 'glts/vim-magnum'                  " integer library
-Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
-Plug 'tpope/vim-repeat'                 " repeat plugin commands
-
 call plug#end()
 
 colorscheme gruvbox
