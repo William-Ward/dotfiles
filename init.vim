@@ -32,7 +32,7 @@ filetype plugin indent on
 filetype plugin on 
 set omnifunc=syntaxcomplete#Complete
 
-set shell=/bin/zsh
+set shell=/usr/bin/zsh
 
 "enable fuzzy finder
 " :find now gives fuzzy search, tab to complete
@@ -68,12 +68,12 @@ inoremap <C-Space> <C-n>
 nnoremap <C-s> <C-x>
 nnoremap <BS> $
 
+" let asdf=~/source/repos/dotfiles/init.vim
+
 " source my vimrc
 nnoremap <Leader>sv :source $MYVIMRC<cr> 
 " open my vimrc in verticle split
-nnoremap <Leader>v :vs $MYVIMRC<cr> 
-" open my vimrc in verticle split
-noremap <Leader>tv :tabe $MYVIMRC<cr>
+nnoremap <Leader>v :vs ~/source/repos/dotfiles/init.vim<cr> 
 
 " delete three lines
 nnoremap d, 3dd
@@ -93,7 +93,8 @@ nnoremap <Leader>q :wqa<CR>
 nnoremap <Leader>m :!make<CR>
 nnoremap <Leader>mc :!make clean<CR>
 nnoremap <Leader>mt :!make tests<CR>
-nnoremap <Leader>rt :!./tests<CR>
+autocmd Filetype cpp nnoremap <Leader>rt :!make tests && ./tests<CR>
+autocmd Filetype python nnoremap <Leader>rt :!pytest<CR>
 
 nnoremap <M-;> <C-w>>
 nnoremap <M-'> <C-w><
