@@ -134,6 +134,8 @@ nnoremap <Leader>/ :noh<CR>
 
 "==> text templates {{{
 
+"creates class template
+autocmd Filetype cpp inoremap /gc #ifndef <C-r>%<ESC>Bg~Wf.r_byWo#define <ESC>poclass <C-r>%<ESC>0w~f.C{<CR>private:<CR>public:<CR>};<CR>#endif<ESC>kk
 "creates a basic for loop template
 autocmd Filetype cpp inoremap /for for(int i = 0; i < size; i++)<CR>{<CR><CR>}<ESC>kcc
 "creates a basic c++ template
