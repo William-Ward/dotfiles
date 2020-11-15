@@ -1,5 +1,5 @@
 " ==> General settings {{{
-let mapleader = " " 
+let mapleader = " "
 syntax enable
 syntax on
 
