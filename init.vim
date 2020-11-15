@@ -1,5 +1,7 @@
 " ==> General settings {{{
 let mapleader = " " 
+syntax enable
+syntax on
 
 " set colorcolumn to 80 characters and dark grey
 " set colorcolumn=80
@@ -13,17 +15,14 @@ set nowrap    " don't wrap long lines
 set number relativenumber " gives me the cool line numbers
 set tag=tag               " needed for ctags
 set scrolloff=0           " keep 3 lines when scrolling
-"set scl=no                " force the signcolumn to disappear
-
-"set spell spelllang=en_us "spell checker
+set scl=no                " force the signcolumn to disappear
 
 set shiftwidth=4          "don't know what this one does
 set autoindent            "auto indents supported files
 set tabstop=4             "sets tabs to 4 spaces
-set expandtab             "expands tabs to space
+set expandtab             "converts tabs to space
 set smarttab              "makes the automatic tabs
 
-syntax enable
 
 " set cursorline 
 set nocompatible
@@ -33,7 +32,7 @@ filetype plugin indent on
 filetype plugin on 
 set omnifunc=syntaxcomplete#Complete
 
-set shell=/bin/zsh
+set shell=/usr/bin/zsh
 
 "enable fuzzy finder
 " :find now gives fuzzy search, tab to complete
@@ -64,16 +63,17 @@ nnoremap <Leader>t :Vexplore<cr>
 "==> Remaps {{{
 " tab key uses vims autocomplete
 inoremap <Tab> <C-n>
+inoremap <C-Space> <C-n>
 
 nnoremap <C-s> <C-x>
 nnoremap <BS> $
 
+" let asdf=~/source/repos/dotfiles/init.vim
+
 " source my vimrc
 nnoremap <Leader>sv :source $MYVIMRC<cr> 
 " open my vimrc in verticle split
-nnoremap <Leader>v :vs $MYVIMRC<cr> 
-" open my vimrc in verticle split
-noremap <Leader>tv :tabe $MYVIMRC<cr>
+nnoremap <Leader>v :vs ~/source/repos/dotfiles/init.vim<cr> 
 
 " delete three lines
 nnoremap d, 3dd
@@ -89,8 +89,12 @@ vnoremap gk 10k
 
 nnoremap <Leader>w :wa<CR>
 nnoremap <Leader>q :wqa<CR>
+
 nnoremap <Leader>m :!make<CR>
 nnoremap <Leader>mc :!make clean<CR>
+nnoremap <Leader>mt :!make tests<CR>
+autocmd Filetype cpp nnoremap <Leader>rt :!make tests && ./tests<CR>
+autocmd Filetype python nnoremap <Leader>rt :!pytest<CR>
 
 nnoremap <M-;> <C-w>>
 nnoremap <M-'> <C-w><
@@ -165,34 +169,40 @@ augroup END
 "==> Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-" Plug 'tpope/vim-surround'             " surround with specified characters
-" Plug 'konfekt/vim-CtrlXA'             " toggle true/false and others
-" Plug 'tpope/vim-speeddating'          "
-" Plug 'liuchengxu/vim-which-key'       " leader commands
-" Plug 'scrooloose/syntastic' " give syntac feedback
-" Plug 'philj56/vim-asm-indent'
-" Plug 'christoomey/vim-tmux-navigator' " move around in tmux and vim
+Plug 'tpope/vim-commentary'             " comment quickly gcc
+Plug 'tpope/vim-fugitive'               " comment quickly gcc
+Plug 'godlygeek/tabular'                " align text on a given character
+Plug 'itchyny/lightline.vim'            " better statusline
+Plug 'scrooloose/nerdtree'              " nerdtree
+Plug 'morhetz/gruvbox'                  " colorscheme
 
-Plug 'godlygeek/tabular'              " align text on a given character
-Plug 'itchyny/lightline.vim'          " better statusline
-Plug 'scrooloose/nerdtree'            " nerdtree
-Plug 'tpope/vim-commentary'           " comment quickly gcc
+Plug 'glts/vim-magnum'                  " integer library
+Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
+Plug 'tpope/vim-repeat'                 " repeat plugin commands
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
+
+colorscheme gruvbox
+set background=dark
+
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Gpush<CR>
 
 " nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 " nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
-" }}}
+"nnoremap <silent> <Leader> :WhichKey '<Space>'<CR>
+"" }}}
 
-"==> Word Processor {{{
+""==> Word Processor {{{
 func! WordProcessor()
     nnoremap j gj
     nnoremap k gk
