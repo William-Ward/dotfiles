@@ -165,19 +165,20 @@ augroup END
 "==> Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-surround'             " surround with specified characters
-Plug 'tpope/vim-commentary'           " comment quickly gcc
-Plug 'tpope/vim-speeddating'          "
+" Plug 'tpope/vim-surround'             " surround with specified characters
+" Plug 'konfekt/vim-CtrlXA'             " toggle true/false and others
+" Plug 'tpope/vim-speeddating'          "
+" Plug 'liuchengxu/vim-which-key'       " leader commands
+" Plug 'scrooloose/syntastic' " give syntac feedback
+" Plug 'philj56/vim-asm-indent'
+" Plug 'christoomey/vim-tmux-navigator' " move around in tmux and vim
+
 Plug 'godlygeek/tabular'              " align text on a given character
-Plug 'christoomey/vim-tmux-navigator' " move around in tmux and vim
 Plug 'itchyny/lightline.vim'          " better statusline
 Plug 'scrooloose/nerdtree'            " nerdtree
-Plug 'liuchengxu/vim-which-key'       " leader commands
-" Plug 'konfekt/vim-CtrlXA'             " toggle true/false and others
+Plug 'tpope/vim-commentary'           " comment quickly gcc
 
-" Plug 'scrooloose/syntastic' " give syntac feedback
 
-" Plug 'philj56/vim-asm-indent'
 call plug#end()
 
 " nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
