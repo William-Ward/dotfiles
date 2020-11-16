@@ -183,6 +183,8 @@ Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
 Plug 'tpope/vim-repeat'                 " repeat plugin commands
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" for c++ install clang
+" for python install python-pylint and python-jedi
 
 call plug#end()
 
