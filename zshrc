@@ -6,6 +6,33 @@
 export ZSH="/home/bill/.oh-my-zsh"
 # }}}
 
+# .zshrc.pre-oh-my-zsh {{{
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.config/zsh/histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch
+unsetopt beep notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/bill/.zshrc'
+
+autoload -Uz compinit
+compinit -d ~/.config/zsh/.zcompdump
+# End of lines added by compinstall
+
+# menu using arrow keys
+zstyle ':completion:*' menu select
+zstyle ':completion::completion:*' gain-privileges 1
+
+# enable prompt themes
+autoload -Uz promptinit
+promptinit
+
+prompt clint
+# }}}
+
 # zsh themes {{{
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,6 +98,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
 
 # plugins {{{
 
