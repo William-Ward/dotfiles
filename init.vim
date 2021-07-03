@@ -56,14 +56,13 @@ let g:netrw_winsize=20  " netrw is always 25 col wide
 let g:netrw_list_hide=netrw_gitignore#Hide()
 " let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-nnoremap <Leader>t :Vexplore<cr>
-
 " }}}  
 
-"==> Remaps {{{
+"==> Remaps {{{ 
 " tab key uses vims autocomplete
 inoremap <Tab> <C-n>
 inoremap <C-Space> <C-n>
+inoremap /b <C-v>u2750
 
 nnoremap <C-s> <C-x>
 nnoremap <BS> $
@@ -94,12 +93,20 @@ nnoremap <Leader>m :!make<CR>
 nnoremap <Leader>mc :!make clean<CR>
 nnoremap <Leader>mt :!make tests<CR>
 autocmd Filetype cpp nnoremap <Leader>rt :!make tests && ./tests<CR>
-autocmd Filetype python nnoremap <Leader>rt :!pytest<CR>
+autocmd Filetype python nnoremap <Leader>rt :!pytest -rPx<CR>
+autocmd Filetype java nnoremap <Leader>rt :!mvn -q test<CR>
 
+nnoremap <Leader>mks :mksession!<CR>
+
+"shrink window
 nnoremap <M-;> <C-w>>
+" expand window
 nnoremap <M-'> <C-w><
+" set all windows equal
 nnoremap <Leader>= <C-w>=
+" squish other horizontal windows down
 nnoremap <Leader>_ <C-w>_
+" squish other verticle windows sideways
 nnoremap <Leader><bar> <C-w><bar>
 
 " map leader hjkl to move windows around
@@ -116,6 +123,7 @@ nnoremap <C-l> <C-w>l
 " tab right, left
 nnoremap <Right>  gt
 nnoremap <Left> gT
+set mouse=a
 
 " move line up, down
 nnoremap <Up> ddkP
@@ -133,11 +141,11 @@ nnoremap <Leader>/ :noh<CR>
 " }}}
 
 "==> text templates {{{
-
+autocmd Filetype cpp nnoremap <Leader>fd yy<C-w>hGkP==Wdf:x$r;<C-w>l
 "creates class template
 autocmd Filetype cpp inoremap /gc #ifndef <C-r>%<ESC>Bg~Wf.r_byWo#define <ESC>poclass <C-r>%<ESC>0w~f.C{<CR>private:<CR>public:<CR>};<CR>#endif<ESC>kk
 "creates a basic for loop template
-autocmd Filetype cpp inoremap /for for(int i = 0; i < size; i++)<CR>{<CR><CR>}<ESC>kcc
+autocmd Filetype cpp inoremap /for for(int i = 0; i < size; i++){<CR><CR>}<ESC>kcc
 "creates a basic c++ template
 " :.-1read $HOME/.vim/.newcpp<CR>6jS
 autocmd Filetype cpp inoremap /gn #include <iostream><CR><CR>using namespace std;<CR><CR>int main()<CR>{<CR><CR>return 0;<CR>}<ESC>kkS
@@ -145,6 +153,8 @@ autocmd Filetype cpp inoremap /gn #include <iostream><CR><CR>using namespace std
 autocmd Filetype cpp inoremap /if if()<CR>{<CR><CR>}<ESC>3kf)i
 " creates template #include statement
 autocmd Filetype cpp inoremap /wh while()<CR>{<CR><CR>}<ESC>3k%i
+"creates test function
+autocmd Filetype python nnoremap <Leader>test yiw<C-w>lGO<CR>def test<ESC>pA():<CR>
 
 " this is because my fat fingers can't type q!
 abbr Q q!  
@@ -172,15 +182,20 @@ augroup END
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'             " comment quickly gcc
-Plug 'tpope/vim-fugitive'               " comment quickly gcc
+Plug 'tpope/vim-fugitive'               " git wrapper
+Plug 'tpope/vim-repeat'                 " repeat plugin commands
+Plug 'tpope/vim-obsession'              " update sessions automaticly
+Plug 'tpope/vim-eunuch'                 " add essential Unix commands
+
 Plug 'godlygeek/tabular'                " align text on a given character
 Plug 'itchyny/lightline.vim'            " better statusline
 Plug 'scrooloose/nerdtree'              " nerdtree
+
 Plug 'morhetz/gruvbox'                  " colorscheme
+Plug 'haishanh/night-owl.vim'
 
 Plug 'glts/vim-magnum'                  " integer library
 Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
-Plug 'tpope/vim-repeat'                 " repeat plugin commands
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " for c++ install clang
@@ -191,9 +206,14 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gp :Gpush<CR>
+" colorscheme night-owl
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
+
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gc :Git commit<CR>
+nnoremap <Leader>gp :Git push<CR>
 
 " nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 " nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)

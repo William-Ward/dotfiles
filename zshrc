@@ -1,6 +1,7 @@
 # zsh path {{{
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/home/bill/.local/share/gem/ruby/3.0.0/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/bill/.oh-my-zsh"
@@ -131,6 +132,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 # }}}
 
 # aliases {{{
@@ -141,6 +144,7 @@ alias p='sudo pacman'
 alias nvs="nvim -S"
 alias shn="shutdown now"
 alias shr="shutdown -r now"
+alias gs="git status"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
