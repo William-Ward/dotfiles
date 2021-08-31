@@ -67,6 +67,29 @@ inoremap /b <C-v>u2750
 nnoremap <C-s> <C-x>
 nnoremap <BS> $
 
+nnoremap Y y$
+
+" keep it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" undo breakpoints
+inoremap , ,<c-u>u
+inoremap . .<c-u>u
+
+" moving text
+" move line up, down
+nnoremap <Down> :m .+1<CR>==
+nnoremap <Up> :m .-2<CR>==
+
+" move stuff around in visual block mode
+vnoremap <Down> :m '>+1<CR>gv=gv
+vnoremap <Up> :m '<-2<CR>gv=gv
+
+vnoremap v V
+
+
 " let asdf=~/source/repos/dotfiles/init.vim
 
 " source my vimrc
@@ -79,6 +102,7 @@ nnoremap d, 3dd
 
 " exit insert mode
 inoremap kj <ESC>l
+vnoremap kj <ESC>l
 
 "move up or down 10 lines
 nnoremap gj 10j
@@ -124,14 +148,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <Right>  gt
 nnoremap <Left> gT
 set mouse=a
-
-" move line up, down
-nnoremap <Up> ddkP
-nnoremap <Down> ddp
-
-" move stuff around in visual block mode
-vnoremap <Down> :m '>+1<CR>gv=gv
-vnoremap <Up> :m '<-2<CR>gv=gv
 
 " does the opposite of J
 nnoremap K o<ESC>k
@@ -193,6 +209,7 @@ Plug 'scrooloose/nerdtree'              " nerdtree
 
 Plug 'morhetz/gruvbox'                  " colorscheme
 Plug 'haishanh/night-owl.vim'
+Plug 'ryanoasis/vim-devicons'           " dev icons
 
 Plug 'glts/vim-magnum'                  " integer library
 Plug 'glts/vim-radical'                 " convert hex,bin,dec,oct
