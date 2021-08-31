@@ -1,42 +1,54 @@
 ﻿/* shrinks the height of tabs */
 #tabbrowser-tabs { 
-    --tab-min-height: 13px !important;
+    --tab-min-height: 25px !important;
+    height: 25px !important; 
     margin-left: 0px !important;
-    height: 13px !important; 
 }
 
-/* shrinks the tab width to 10 pixels*/
-.tabbrowser-tab {
-    max-width: 10px !important;
+/* hide nav-bar */
+
+:root[sessionrestored] #nav-bar:not([customizing="true"]) {
+    min-height: 0px !important; 
+    max-height: 0px !important; 
+    /* margin-top: 0px !important; */ 
+    /* margin-bottom: -0px !important; */ 
+    /* transition: all 100ms ease 0s !important; */ 
+    /* z-index: -5 !important; */ 
+}
+
+/* show nav-bar on navigator-toolbox hover/focus */
+
+#navigator-toolbox:hover :-moz-any(#nav-bar),
+#navigator-toolbox:focus-within :-moz-any(#nav-bar) {
+    min-height: 32px !important;
+    max-height: 32px !important;
+    margin-top: 0px !important;
+    margin-bottom: -32px !important;
+    transition: all 100ms ease 0s !important;
+    z-index: 1 !important;
 } 
 
+/* /1* fix urlbar being too high in ff 74 *1/ */
+/* #urlbar.megabar { */
+/*     --urlbar-toolbar-height: 0px !important; */
+/* } */
+
+
+/* #main-window[chromehidden*="toolbar"] #nav-bar { */
+/*     visibility: collapse; */ 
+/* } */
+
+/* shrinks the tab width to 10 pixels*/
+/* .tabbrowser-tab { */
+/*     max-width: 10px !important; */
+/* } */ 
+
 /* get's rid of the name of the tab */
-.tab-text {
-    font-size: 0px !important;
-}
+/* .tab-text { */
+/*     font-size: 0px !important; */
+/* } */
 
-/*@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");  only needed once */
-/* remove scroll bars */
-:-moz-any(#content,#appcontent) browser{
- margin-right:-14px!important;
- overflow-y:scroll;
- margin-bottom:-14px!important;
- overflow-x:scroll;
-}
-
-/* makes the bookmark bar go away */
-#main-window #PersonalToolbar {
-  visibility: collapse !important;
-}
-#main-window[title^="about:newtab"] #PersonalToolbar,
-#main-window[title^="New Tab"] #PersonalToolbar,
-#main-window[title^="Nightly"] #PersonalToolbar,
-#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
-#main-window[title^="Firefox"] #PersonalToolbar {
-  visibility: visible !important;
-}
-
-.menubar {
-    background-color: red;
-}
+/* .menubar { */
+/*     background-color: red; */
+/* } */
 
