@@ -75,8 +75,8 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " undo breakpoints
-inoremap , ,<c-u>u
-inoremap . .<c-u>u
+" inoremap , ,<c-u>u
+" inoremap . .<c-u>u
 
 " moving text
 " move line up, down
