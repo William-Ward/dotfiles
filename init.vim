@@ -118,7 +118,7 @@ nnoremap <Leader>mc :!make clean<CR>
 nnoremap <Leader>mt :!make tests<CR>
 autocmd Filetype cpp nnoremap <Leader>rt :!make tests && ./tests<CR>
 autocmd Filetype python nnoremap <Leader>rt :!pytest -rPx<CR>
-autocmd Filetype java nnoremap <Leader>rt :!mvn -q test<CR>
+autocmd Filetype java nnoremap <Leader>rt :!gradle test<CR>
 
 nnoremap <Leader>mks :mksession!<CR>
 
